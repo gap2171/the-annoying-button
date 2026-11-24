@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Annoying Button</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>The Annoying Button</h1>
+    <p id="instructions">Round 1 · Catch the button.</p>
+
+    <div class="arena">
+      <button class="target" type="button"><span>Click me</span></button>
+      <div id="choices" hidden></div>
+    </div>
+
+    <div class="feedback" role="status">
+      <span id="count">Dodges: 0</span>
+      <span id="message"></span>
+    </div>
+
+    <form id="riddle" hidden>
+      <label id="riddle-question" for="answer"></label>
+      <input id="answer" autocomplete="off" required>
+      <button type="submit">Check answer</button>
+    </form>
+
+    <fieldset>
+      <legend>Experiment with the rules</legend>
+      <label for="radius">Mouse distance <output id="radius-value">48 px</output></label>
+      <input id="radius" type="range" min="0" max="100" value="48">
+
+      <label for="hint-after">Dodges before the riddle <output id="hint-value">3</output></label>
+      <input id="hint-after" type="range" min="1" max="10" value="3">
+
+      <button id="reset" type="button">Replay</button>
+    </fieldset>
+  </main>
+</body>
+</html>
