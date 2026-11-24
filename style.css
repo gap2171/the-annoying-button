@@ -1,0 +1,118 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #232438;
+  background: #f8f5ef;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+main {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 2.5rem auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: -0.05em;
+}
+
+.arena {
+  position: relative;
+  height: 19rem;
+  border: 2px solid #d3cce8;
+  border-radius: 1rem;
+  background: #eee9fa;
+}
+
+button {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.65rem 1rem;
+  border-radius: 0.55rem;
+}
+
+.target {
+  position: absolute;
+  width: 8rem;
+  border: 0;
+  color: white;
+  background: #5036a0;
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 3px solid #ad4518;
+  outline-offset: 3px;
+}
+
+.feedback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1rem 0;
+  font-weight: 650;
+}
+
+fieldset {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid #d3cce8;
+  border-radius: 0.7rem;
+}
+
+label { display: flex; justify-content: space-between; gap: 0.5rem; }
+input { margin: 0 0 0.6rem; accent-color: #5036a0; }
+#reset { justify-self: start; background: white; color: inherit; border: 1px solid #807991; }
+
+[hidden] { display: none !important; }
+
+.target, .choice {
+  width: clamp(4.5rem, 19vw, 6.5rem);
+  aspect-ratio: 1;
+  border: 2px solid #ac0059;
+  padding: 0.3rem;
+  border-radius: 50%;
+  color: #300019;
+  background: #ff4ca9;
+  box-shadow: inset 0 4px 0 #ff9bce, 0 7px 0 #a80056, 0 11px 16px #59003038;
+  touch-action: none;
+  user-select: none;
+}
+
+.target:active, .choice:active {
+  transform: translateY(4px);
+  box-shadow: inset 0 4px 0 #ff9bce, 0 3px 0 #a80056;
+}
+
+.target::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(#a80056 var(--progress, 0turn), transparent 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 5px), black 0);
+  pointer-events: none;
+}
+
+#choices {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem 0.75rem;
+  padding: 0.5rem;
+}
+
+.crooked { display: inline-block; transform: rotate(-9deg); }
+
+#riddle { margin-bottom: 1rem; }
+#riddle label { margin-bottom: 0.5rem; font-weight: 650; }
+#answer { max-width: 100%; padding: 0.55rem; font: inherit; }
+.feedback { min-height: 1.5rem; }
